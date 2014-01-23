@@ -70,7 +70,7 @@ module NestedLayoutTags
     tag.globals.nested_layouts_content_stack ||= []
     
     # return the saved content if any, or mimic a default +<r:content/>+ tag (render the body part)
-    tag.globals.nested_layouts_content_stack.pop || tag.globals.page.render_snippet(tag.locals.page.part('body'))
+    tag.globals.nested_layouts_content_stack.pop || tag.globals.page.render_snippet( ( tag.locals.page.part('body') || '' ) )
   end
   
   desc %{
